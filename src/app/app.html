@@ -1,11 +1,24 @@
-<a class="skip-link" href="#main-content">Skip to content</a>
+@let t = copy();
 
-<header class="site-header" aria-label="Primary navigation">
-  <a class="brand" href="#top" aria-label="Pere Antoni Borràs Expósito, home">PB<span>.</span></a>
+<a class="skip-link" href="#main-content">{{ t.skipLink }}</a>
+
+<header class="site-header" [attr.aria-label]="t.primaryNavigation">
+  <a class="brand" href="#top" [attr.aria-label]="t.homeLabel">PB<span>.</span></a>
   <nav>
-    <a href="#expertise">Expertise</a>
-    <a href="#experience">Experience</a>
-    <a class="nav-cta" href="#contact">Let's talk <span aria-hidden="true">↗</span></a>
+    <a href="#expertise">{{ t.expertiseNav }}</a>
+    <a href="#experience">{{ t.experienceNav }}</a>
+    <a class="nav-cta" href="#contact">{{ t.contactNav }} <span aria-hidden="true">↗</span></a>
+    <button
+      class="language-toggle"
+      type="button"
+      [attr.aria-label]="t.languageToggle"
+      [attr.title]="t.languageToggle"
+      (click)="toggleLanguage()"
+    >
+      <span [class.active]="language() === 'es'">ES</span>
+      <span class="language-divider" aria-hidden="true">/</span>
+      <span [class.active]="language() === 'en'">EN</span>
+    </button>
   </nav>
 </header>
 
@@ -15,70 +28,61 @@
     <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
 
     <div class="hero-content reveal">
-      <p class="eyebrow">Senior .NET Engineer · Team Lead · Angular</p>
+      <p class="eyebrow">{{ t.heroEyebrow }}</p>
       <h1 id="hero-title">
-        I turn complexity into
-        <span>software that moves businesses forward.</span>
+        {{ t.heroTitle }}
+        <span>{{ t.heroTitleAccent }}</span>
       </h1>
-      <p class="hero-intro">
-        I'm Pere Antoni Borràs Expósito, a full-stack engineer focused on .NET, Angular and
-        distributed systems. I connect architecture, people and product to ship work that matters.
-      </p>
+      <p class="hero-intro">{{ t.heroIntro }}</p>
       <div class="hero-actions">
         <a class="button button-primary" href="#experience"
-          >Explore my work <span aria-hidden="true">↓</span></a
+          >{{ t.exploreWork }} <span aria-hidden="true">↓</span></a
         >
-        <a class="button button-secondary" href="#expertise">View expertise</a>
+        <a class="button button-secondary" href="#expertise">{{ t.viewExpertise }}</a>
       </div>
     </div>
 
-    <div class="hero-proof reveal reveal-delay" aria-label="Career highlights">
+    <div class="hero-proof reveal reveal-delay" [attr.aria-label]="t.careerHighlights">
       <article>
         <strong>5+</strong>
-        <span>years building enterprise software</span>
+        <span>{{ t.yearsBuilt }}</span>
       </article>
       <article>
         <strong>7</strong>
-        <span>developers led and mentored</span>
+        <span>{{ t.developersLed }}</span>
       </article>
       <article>
         <strong>3</strong>
-        <span>languages for global collaboration</span>
+        <span>{{ t.languagesSpoken }}</span>
       </article>
     </div>
   </section>
 
-  <section class="statement section-shell" aria-label="Professional statement">
-    <p class="section-kicker">What I bring</p>
+  <section class="statement section-shell" [attr.aria-label]="t.professionalStatement">
+    <p class="section-kicker">{{ t.contributionKicker }}</p>
     <h2>
-      Senior engineering is more than writing code.
-      <span>It's making the next decision easier.</span>
+      {{ t.contributionTitle }}
+      <span>{{ t.contributionTitleAccent }}</span>
     </h2>
-    <p class="statement-copy">
-      I work across the full delivery lifecycle: understanding the real problem, shaping the
-      solution, guiding implementation and helping the team raise the bar together.
-    </p>
+    <p class="statement-copy">{{ t.contributionCopy }}</p>
   </section>
 
   <section class="expertise section-shell" id="expertise" aria-labelledby="expertise-title">
     <div class="section-heading">
       <div>
-        <p class="section-kicker">Expertise</p>
-        <h2 id="expertise-title">Deep where it counts.<br />Broad where it helps.</h2>
+        <p class="section-kicker">{{ t.expertiseKicker }}</p>
+        <h2 id="expertise-title">{{ t.expertiseTitle }}<br />{{ t.expertiseTitleSecondLine }}</h2>
       </div>
-      <p>
-        A backend-first profile with the range to connect technical strategy, cloud delivery and the
-        user experience.
-      </p>
+      <p>{{ t.expertiseIntro }}</p>
     </div>
 
     <div class="capability-grid">
-      @for (capability of capabilities; track capability.title) {
+      @for (capability of t.capabilities; track capability.title) {
         <article class="capability-card">
           <p class="card-eyebrow">{{ capability.eyebrow }}</p>
           <h3>{{ capability.title }}</h3>
           <p>{{ capability.description }}</p>
-          <ul aria-label="Key technologies">
+          <ul [attr.aria-label]="t.keyTechnologies">
             @for (technology of capability.technologies; track technology) {
               <li>{{ technology }}</li>
             }
@@ -90,18 +94,13 @@
 
   <section class="impact" aria-labelledby="impact-title">
     <div class="impact-inner section-shell">
-      <p class="section-kicker section-kicker-light">From requirements to results</p>
-      <h2 id="impact-title">Engineering with business context.</h2>
-      <p>
-        At Avoris Tech, I help evolve a platform used by international tour operators and travel
-        agencies - combining hands-on delivery, direct client collaboration and technical leadership
-        to support sustained business growth.
-      </p>
-      <div class="impact-pill-row" aria-label="Areas of impact">
-        <span>International B2B & B2C</span>
-        <span>Distributed services</span>
-        <span>Technical leadership</span>
-        <span>Travel technology</span>
+      <p class="section-kicker section-kicker-light">{{ t.impactKicker }}</p>
+      <h2 id="impact-title">{{ t.impactTitle }}</h2>
+      <p>{{ t.impactCopy }}</p>
+      <div class="impact-pill-row" [attr.aria-label]="t.impactAreas">
+        @for (pill of t.impactPills; track pill) {
+          <span>{{ pill }}</span>
+        }
       </div>
     </div>
   </section>
@@ -109,14 +108,14 @@
   <section class="experience section-shell" id="experience" aria-labelledby="experience-title">
     <div class="section-heading experience-heading">
       <div>
-        <p class="section-kicker">Experience</p>
-        <h2 id="experience-title">Built through ownership.</h2>
+        <p class="section-kicker">{{ t.experienceKicker }}</p>
+        <h2 id="experience-title">{{ t.experienceTitle }}</h2>
       </div>
-      <p>From full-stack delivery to technical leadership and architecture.</p>
+      <p>{{ t.experienceIntro }}</p>
     </div>
 
     <div class="timeline">
-      @for (item of experience; track item.company) {
+      @for (item of t.experience; track item.company) {
         <article class="timeline-item">
           <div class="timeline-meta">
             <p>{{ item.period }}</p>
@@ -138,44 +137,41 @@
     <div class="recognition">
       <div class="recognition-mark" aria-hidden="true">01</div>
       <div>
-        <p class="card-eyebrow">Recognition · 2023</p>
-        <h3>Circular Innovation Hackathon winner</h3>
-        <p>
-          First-place team in a 24-hour challenge led by Impulsa Balears with Hotelbeds, creating a
-          gamified concept for more sustainable, decentralised tourism.
-        </p>
+        <p class="card-eyebrow">{{ t.recognitionKicker }}</p>
+        <h3>{{ t.recognitionTitle }}</h3>
+        <p>{{ t.recognitionCopy }}</p>
       </div>
     </div>
   </section>
 
   <section class="education section-shell" aria-labelledby="education-title">
     <div>
-      <p class="section-kicker">Foundation</p>
-      <h2 id="education-title">Technology with a creative edge.</h2>
+      <p class="section-kicker">{{ t.educationKicker }}</p>
+      <h2 id="education-title">{{ t.educationTitle }}</h2>
     </div>
     <div class="education-grid">
       <article>
         <span>2023</span>
-        <h3>Web Application Development</h3>
+        <h3>{{ t.webDevelopment }}</h3>
         <p>CIFP Francesc de Borja Moll</p>
       </article>
       <article>
         <span>2020</span>
-        <h3>3D Animation & Interactive Environments</h3>
+        <h3>{{ t.animation }}</h3>
         <p>LADAT Studios</p>
       </article>
       <article>
         <span>ES · CA · EN</span>
-        <h3>Local roots. International mindset.</h3>
-        <p>Native Spanish and Catalan, professional English.</p>
+        <h3>{{ t.internationalTitle }}</h3>
+        <p>{{ t.internationalCopy }}</p>
       </article>
     </div>
   </section>
 
   <section class="contact section-shell" id="contact" aria-labelledby="contact-title">
-    <p class="section-kicker">Let's build something meaningful</p>
+    <p class="section-kicker">{{ t.contactKicker }}</p>
     <h2 id="contact-title">
-      Architecture. Product. People.<br /><span>One engineering mindset.</span>
+      {{ t.contactTitle }}<br /><span>{{ t.contactTitleAccent }}</span>
     </h2>
     <div class="contact-actions">
       <a class="contact-link" href="mailto:borrasexposito@gmail.com">
@@ -187,7 +183,7 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        Connect on LinkedIn <span aria-hidden="true">↗</span>
+        {{ t.linkedinContact }} <span aria-hidden="true">↗</span>
       </a>
     </div>
   </section>
@@ -195,8 +191,8 @@
 
 <footer class="site-footer section-shell">
   <p>© {{ year }} Pere Antoni Borràs Expósito</p>
-  <p>Designed with intention. Built with Angular.</p>
-  <nav class="footer-links" aria-label="Social links">
+  <p>{{ t.footerCraft }}</p>
+  <nav class="footer-links" [attr.aria-label]="t.socialLinks">
     <a href="https://github.com/PeterBFoo" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
     <a
       href="https://www.linkedin.com/in/pere-antoni-borr%C3%A0s-exp%C3%B3sito-8880a7183/"
@@ -204,6 +200,6 @@
       rel="noopener noreferrer"
       >LinkedIn ↗</a
     >
-    <a href="#top">Back to top ↑</a>
+    <a href="#top">{{ t.backToTop }}</a>
   </nav>
 </footer>

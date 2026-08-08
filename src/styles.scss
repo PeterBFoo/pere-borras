@@ -65,7 +65,7 @@ a {
   top: 18px;
   left: 50%;
   display: flex;
-  width: min(760px, calc(100% - 32px));
+  width: min(860px, calc(100% - 32px));
   min-height: 58px;
   align-items: center;
   justify-content: space-between;
@@ -119,6 +119,49 @@ a {
 .site-header nav .nav-cta:hover {
   background: #2d2e32;
   color: var(--white);
+}
+
+.language-toggle {
+  display: inline-flex;
+  min-width: 68px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0 10px;
+  border: 1px solid rgba(16, 17, 20, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #8a8d93;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.language-toggle:hover {
+  border-color: rgba(16, 17, 20, 0.2);
+  background: var(--white);
+  transform: translateY(-1px);
+}
+
+.language-toggle:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.language-toggle .active {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.language-divider {
+  color: #c1c3c7;
 }
 
 .section-shell {
@@ -807,6 +850,23 @@ a {
 }
 
 @media (max-width: 520px) {
+  .site-header {
+    padding-left: 16px;
+  }
+
+  .site-header nav {
+    gap: 4px;
+  }
+
+  .site-header nav .nav-cta {
+    padding-inline: 11px;
+  }
+
+  .language-toggle {
+    min-width: 60px;
+    padding-inline: 7px;
+  }
+
   .hero {
     min-height: 990px;
     padding-inline: 16px;
