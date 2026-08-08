@@ -33,7 +33,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build Angular app
-        run: pnpm build -- --base-href "/${{ github.event.repository.name }}/"
+        run: pnpm exec ng build --base-href "/${{ github.event.repository.name }}/" --progress=false
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
