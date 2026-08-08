@@ -101,7 +101,9 @@ a {
   color: #3c3e43;
   font-size: 13px;
   font-weight: 600;
-  transition: background 180ms ease, color 180ms ease;
+  transition:
+    background 180ms ease,
+    color 180ms ease;
 }
 
 .site-header nav a:hover {
@@ -199,7 +201,10 @@ a {
   border-radius: 999px;
   font-size: 15px;
   font-weight: 600;
-  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
 }
 
 .button:hover {
@@ -234,7 +239,11 @@ a {
   left: -170px;
   width: 460px;
   height: 460px;
-  background: radial-gradient(circle at 60% 40%, rgba(118, 190, 255, 0.58), rgba(173, 219, 255, 0.04) 66%);
+  background: radial-gradient(
+    circle at 60% 40%,
+    rgba(118, 190, 255, 0.58),
+    rgba(173, 219, 255, 0.04) 66%
+  );
 }
 
 .hero-glow-two {
@@ -242,7 +251,11 @@ a {
   bottom: 10%;
   width: 430px;
   height: 430px;
-  background: radial-gradient(circle at 40% 40%, rgba(189, 208, 255, 0.62), rgba(214, 226, 255, 0.04) 66%);
+  background: radial-gradient(
+    circle at 40% 40%,
+    rgba(189, 208, 255, 0.62),
+    rgba(214, 226, 255, 0.04) 66%
+  );
 }
 
 .hero-proof {
@@ -354,7 +367,9 @@ a {
   border: 1px solid rgba(20, 24, 31, 0.05);
   border-radius: var(--radius);
   background: var(--surface);
-  transition: transform 260ms ease, box-shadow 260ms ease;
+  transition:
+    transform 260ms ease,
+    box-shadow 260ms ease;
 }
 
 .capability-card:hover {
@@ -417,8 +432,7 @@ a {
   border-radius: 42px;
   background:
     radial-gradient(circle at 84% 18%, rgba(54, 138, 230, 0.5), transparent 28%),
-    radial-gradient(circle at 6% 90%, rgba(86, 74, 190, 0.35), transparent 30%),
-    #07090e;
+    radial-gradient(circle at 6% 90%, rgba(86, 74, 190, 0.35), transparent 30%), #07090e;
   color: var(--white);
 }
 
@@ -615,7 +629,9 @@ a {
   border-bottom: 2px solid var(--ink);
   font-size: clamp(18px, 3vw, 28px);
   font-weight: 600;
-  transition: color 180ms ease, border-color 180ms ease;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease;
 }
 
 .contact-link:hover {
@@ -646,6 +662,20 @@ a {
 
 .site-footer a {
   font-weight: 600;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-links a {
+  transition: color 180ms ease;
+}
+
+.footer-links a:hover {
+  color: var(--blue-dark);
 }
 
 .reveal {
@@ -768,6 +798,11 @@ a {
     flex-direction: column;
     gap: 10px;
     text-align: center;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 

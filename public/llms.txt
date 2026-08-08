@@ -1,0 +1,26 @@
+# Pere Antoni Borràs Expósito
+
+> Senior Full Stack Developer and Team Lead specialising in .NET, Angular, Azure and distributed systems.
+
+Canonical portfolio: https://peterbfoo.github.io/pere-borras/
+LinkedIn: https://www.linkedin.com/in/pere-antoni-borr%C3%A0s-exp%C3%B3sito-8880a7183/
+GitHub: https://github.com/PeterBFoo
+Contact: borrasexposito@gmail.com
+
+## Expertise
+
+- Backend engineering: .NET, C#, REST and SOAP APIs, SQL Server, MongoDB
+- Architecture: DDD, hexagonal and clean architecture, SOLID, event-driven systems
+- Frontend: Angular, TypeScript, RxJS, Angular Material, Cypress
+- Cloud and delivery: Azure, Service Bus, CI/CD, xUnit, AI-assisted development
+
+## Experience
+
+- Avoris Tech (2023-present): Team Lead Full Stack Developer, leading seven developers on an international B2B and B2C travel platform.
+- RIU (2022-2023): Full Stack Developer working with .NET, Java and Angular, including a Strangler Fig migration from a legacy monolith to microservices.
+
+## Education and recognition
+
+- Web Application Development, CIFP Francesc de Borja Moll (2023)
+- 3D Animation and Interactive Environments, LADAT Studios (2020)
+- First place, Circular Innovation Hackathon (2023)

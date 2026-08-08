@@ -14,7 +14,8 @@ Open `http://localhost:4200`.
 ## Quality checks
 
 ```bash
-pnpm test -- --run
+pnpm seo:check
+pnpm test --watch=false
 pnpm build
 ```
 
@@ -24,6 +25,14 @@ The workflow in `.github/workflows/deploy.yml` builds the Angular application an
 
 The workflow sets Angular's base URL dynamically from the repository name, so the site works at `https://<username>.github.io/<repository>/` without hard-coded account details.
 
+Set the optional repository variable `BASE_HREF` to `/` after attaching a custom domain.
+
+## SEO
+
+The site is statically prerendered so search engines receive its complete content without needing to execute Angular. It also includes a canonical URL, crawl directives, Open Graph and Twitter metadata, `ProfilePage`/`Person` structured data, a sitemap, a web app manifest, branded icons, a social preview and an `llms.txt` discovery file. The deployment workflow runs `pnpm seo:check` before every build.
+
+After moving to a custom domain, replace `https://peterbfoo.github.io/pere-borras/` in `src/index.html`, `public/robots.txt`, `public/sitemap.xml`, `public/llms.txt` and `scripts/check-seo.mjs`. Set `start_url` and `scope` in `public/site.webmanifest` to `/`, configure the domain in GitHub Pages, set `BASE_HREF=/`, verify the property in Google Search Console and submit `/sitemap.xml`.
+
 ## Content sources
 
-Professional content is based exclusively on `CV-InnoIT-Pere-Borras-Exposito--3.pdf`. Contact and location details that are not present in that document are intentionally excluded from the public site.
+Professional content is based on `CV-InnoIT-Pere-Borras-Exposito--3.pdf` and the verified LinkedIn profile. The contact email was supplied directly by Pere.

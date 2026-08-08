@@ -1,0 +1,30 @@
+{
+  "name": "Pere Borràs · Senior Full Stack Developer",
+  "short_name": "Pere Borràs",
+  "description": "Portfolio of Pere Antoni Borràs Expósito, Senior Full Stack Developer and Team Lead.",
+  "start_url": "/pere-borras/",
+  "scope": "/pere-borras/",
+  "display": "standalone",
+  "background_color": "#f5f5f7",
+  "theme_color": "#f5f5f7",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

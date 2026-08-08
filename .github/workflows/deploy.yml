@@ -32,8 +32,15 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Validate SEO assets
+        run: pnpm seo:check
+
       - name: Build Angular app
-        run: pnpm exec ng build --base-href "/${{ github.event.repository.name }}/" --progress=false
+        env:
+          CONFIGURED_BASE_HREF: ${{ vars.BASE_HREF }}
+        run: |
+          base_href="${CONFIGURED_BASE_HREF:-/${{ github.event.repository.name }}/}"
+          pnpm exec ng build --base-href "$base_href" --progress=false
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
