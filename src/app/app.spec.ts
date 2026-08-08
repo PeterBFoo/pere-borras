@@ -46,13 +46,19 @@ describe('App', () => {
     expect(document.documentElement.lang).toBe('es');
   });
 
-  it('switches language and remembers the manual choice', () => {
+  it('switches language smoothly and remembers the manual choice', async () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     const element = fixture.nativeElement as HTMLElement;
     const languageToggle = element.querySelector<HTMLButtonElement>('.language-toggle');
 
     languageToggle?.click();
+    fixture.detectChanges();
+
+    expect(languageToggle?.classList.contains('is-english')).toBe(false);
+    expect(element.querySelector('main')?.classList.contains('language-transitioning')).toBe(true);
+
+    await new Promise((resolve) => setTimeout(resolve, 230));
     fixture.detectChanges();
 
     expect(element.querySelector('h1')?.textContent).toContain('software que impulsa el negocio');

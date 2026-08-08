@@ -345,6 +345,8 @@ export class App {
   private readonly meta = inject(Meta);
 
   protected readonly language = signal<Language>(this.getInitialLanguage());
+  protected readonly selectedLanguage = signal<Language>(this.language());
+  protected readonly isLanguageTransitioning = signal(false);
   protected readonly copy = computed(() => CONTENT[this.language()]);
   protected readonly year = new Date().getFullYear();
 
@@ -355,10 +357,34 @@ export class App {
   }
 
   protected toggleLanguage(): void {
-    this.language.update((language) => (language === 'en' ? 'es' : 'en'));
+    if (this.isLanguageTransitioning()) {
+      return;
+    }
+
+    const nextLanguage: Language = this.language() === 'en' ? 'es' : 'en';
+    this.selectedLanguage.set(nextLanguage);
+
+    const prefersReducedMotion =
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      this.applyLanguage(nextLanguage);
+      return;
+    }
+
+    this.isLanguageTransitioning.set(true);
+    window.setTimeout(() => {
+      this.applyLanguage(nextLanguage);
+      window.setTimeout(() => this.isLanguageTransitioning.set(false), 35);
+    }, 150);
+  }
+
+  private applyLanguage(language: Language): void {
+    this.language.set(language);
 
     try {
-      localStorage.setItem(LANGUAGE_STORAGE_KEY, this.language());
+      localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
     } catch {
       // Language switching still works when browser storage is unavailable.
     }

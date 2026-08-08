@@ -2,7 +2,11 @@
 
 <a class="skip-link" href="#main-content">{{ t.skipLink }}</a>
 
-<header class="site-header" [attr.aria-label]="t.primaryNavigation">
+<header
+  class="site-header"
+  [class.language-transitioning]="isLanguageTransitioning()"
+  [attr.aria-label]="t.primaryNavigation"
+>
   <a class="brand" href="#top" [attr.aria-label]="t.homeLabel">PB<span>.</span></a>
   <nav>
     <a href="#expertise">{{ t.expertiseNav }}</a>
@@ -10,19 +14,25 @@
     <a class="nav-cta" href="#contact">{{ t.contactNav }} <span aria-hidden="true">↗</span></a>
     <button
       class="language-toggle"
+      [class.is-english]="selectedLanguage() === 'en'"
       type="button"
       [attr.aria-label]="t.languageToggle"
       [attr.title]="t.languageToggle"
+      [attr.aria-busy]="isLanguageTransitioning()"
       (click)="toggleLanguage()"
     >
-      <span [class.active]="language() === 'es'">ES</span>
-      <span class="language-divider" aria-hidden="true">/</span>
-      <span [class.active]="language() === 'en'">EN</span>
+      <span class="language-slider" aria-hidden="true"></span>
+      <span class="language-option" [class.active]="selectedLanguage() === 'es'">ES</span>
+      <span class="language-option" [class.active]="selectedLanguage() === 'en'">EN</span>
     </button>
   </nav>
 </header>
 
-<main id="main-content">
+<main
+  class="language-content"
+  [class.language-transitioning]="isLanguageTransitioning()"
+  id="main-content"
+>
   <section class="hero" id="top" aria-labelledby="hero-title">
     <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
     <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
@@ -189,7 +199,10 @@
   </section>
 </main>
 
-<footer class="site-footer section-shell">
+<footer
+  class="site-footer section-shell language-content"
+  [class.language-transitioning]="isLanguageTransitioning()"
+>
   <p>© {{ year }} Pere Antoni Borràs Expósito</p>
   <p>{{ t.footerCraft }}</p>
   <nav class="footer-links" [attr.aria-label]="t.socialLinks">
