@@ -15,6 +15,7 @@ const requiredAssets = [
   'public/icon-512.png',
   'public/og-image.png',
   'public/llms.txt',
+  'public/googlee980e9f3aeb20a1d.html',
 ];
 
 const index = await readFile(join(root, 'src/index.html'), 'utf8');
