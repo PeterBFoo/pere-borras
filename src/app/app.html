@@ -1,0 +1,186 @@
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="site-header" aria-label="Primary navigation">
+  <a class="brand" href="#top" aria-label="Pere Borras, home">PB<span>.</span></a>
+  <nav>
+    <a href="#expertise">Expertise</a>
+    <a href="#experience">Experience</a>
+    <a class="nav-cta" href="#contact">Let's talk <span aria-hidden="true">↗</span></a>
+  </nav>
+</header>
+
+<main id="main-content">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+
+    <div class="hero-content reveal">
+      <p class="eyebrow">Senior .NET Engineer · Team Lead · Angular</p>
+      <h1 id="hero-title">
+        I turn complexity into
+        <span>software that moves businesses forward.</span>
+      </h1>
+      <p class="hero-intro">
+        I'm Pere Borras, a full-stack engineer focused on .NET, Angular and distributed
+        systems. I connect architecture, people and product to ship work that matters.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#experience">Explore my work <span aria-hidden="true">↓</span></a>
+        <a class="button button-secondary" href="#expertise">View expertise</a>
+      </div>
+    </div>
+
+    <div class="hero-proof reveal reveal-delay" aria-label="Career highlights">
+      <article>
+        <strong>5+</strong>
+        <span>years building enterprise software</span>
+      </article>
+      <article>
+        <strong>7</strong>
+        <span>developers led and mentored</span>
+      </article>
+      <article>
+        <strong>3</strong>
+        <span>languages for global collaboration</span>
+      </article>
+    </div>
+  </section>
+
+  <section class="statement section-shell" aria-label="Professional statement">
+    <p class="section-kicker">What I bring</p>
+    <h2>
+      Senior engineering is more than writing code.
+      <span>It's making the next decision easier.</span>
+    </h2>
+    <p class="statement-copy">
+      I work across the full delivery lifecycle: understanding the real problem, shaping the
+      solution, guiding implementation and helping the team raise the bar together.
+    </p>
+  </section>
+
+  <section class="expertise section-shell" id="expertise" aria-labelledby="expertise-title">
+    <div class="section-heading">
+      <div>
+        <p class="section-kicker">Expertise</p>
+        <h2 id="expertise-title">Deep where it counts.<br />Broad where it helps.</h2>
+      </div>
+      <p>
+        A backend-first profile with the range to connect technical strategy, cloud delivery
+        and the user experience.
+      </p>
+    </div>
+
+    <div class="capability-grid">
+      @for (capability of capabilities; track capability.title) {
+        <article class="capability-card">
+          <p class="card-eyebrow">{{ capability.eyebrow }}</p>
+          <h3>{{ capability.title }}</h3>
+          <p>{{ capability.description }}</p>
+          <ul aria-label="Key technologies">
+            @for (technology of capability.technologies; track technology) {
+              <li>{{ technology }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="impact" aria-labelledby="impact-title">
+    <div class="impact-inner section-shell">
+      <p class="section-kicker section-kicker-light">From requirements to results</p>
+      <h2 id="impact-title">Engineering with business context.</h2>
+      <p>
+        At Avoris Tech, I help evolve a platform used by international tour operators and
+        travel agencies - combining hands-on delivery, direct client collaboration and
+        technical leadership to support sustained business growth.
+      </p>
+      <div class="impact-pill-row" aria-label="Areas of impact">
+        <span>International B2B & B2C</span>
+        <span>Distributed services</span>
+        <span>Technical leadership</span>
+        <span>Travel technology</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience section-shell" id="experience" aria-labelledby="experience-title">
+    <div class="section-heading experience-heading">
+      <div>
+        <p class="section-kicker">Experience</p>
+        <h2 id="experience-title">Built through ownership.</h2>
+      </div>
+      <p>From full-stack delivery to technical leadership and architecture.</p>
+    </div>
+
+    <div class="timeline">
+      @for (item of experience; track item.company) {
+        <article class="timeline-item">
+          <div class="timeline-meta">
+            <p>{{ item.period }}</p>
+            <span>{{ item.company }}</span>
+          </div>
+          <div class="timeline-content">
+            <h3>{{ item.role }}</h3>
+            <p>{{ item.summary }}</p>
+            <ul>
+              @for (highlight of item.highlights; track highlight) {
+                <li>{{ highlight }}</li>
+              }
+            </ul>
+          </div>
+        </article>
+      }
+    </div>
+
+    <div class="recognition">
+      <div class="recognition-mark" aria-hidden="true">01</div>
+      <div>
+        <p class="card-eyebrow">Recognition · 2023</p>
+        <h3>Circular Innovation Hackathon winner</h3>
+        <p>
+          First-place team in a 24-hour challenge led by Impulsa Balears with Hotelbeds,
+          creating a gamified concept for more sustainable, decentralised tourism.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="education section-shell" aria-labelledby="education-title">
+    <div>
+      <p class="section-kicker">Foundation</p>
+      <h2 id="education-title">Technology with a creative edge.</h2>
+    </div>
+    <div class="education-grid">
+      <article>
+        <span>2023</span>
+        <h3>Web Application Development</h3>
+        <p>CIFP Francesc de Borja Moll</p>
+      </article>
+      <article>
+        <span>2020</span>
+        <h3>3D Animation & Interactive Environments</h3>
+        <p>LADAT Studios</p>
+      </article>
+      <article>
+        <span>ES · CA · EN</span>
+        <h3>Local roots. International mindset.</h3>
+        <p>Native Spanish and Catalan, professional English.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="contact section-shell" id="contact" aria-labelledby="contact-title">
+    <p class="section-kicker">Let's build something meaningful</p>
+    <h2 id="contact-title">Architecture. Product. People.<br /><span>One engineering mindset.</span></h2>
+    <a class="contact-link" href="#experience">
+      Explore the journey <span aria-hidden="true">↑</span>
+    </a>
+  </section>
+</main>
+
+<footer class="site-footer section-shell">
+  <p>© {{ year }} Pere Borras</p>
+  <p>Designed with intention. Built with Angular.</p>
+  <a href="#top">Back to top ↑</a>
+</footer>
