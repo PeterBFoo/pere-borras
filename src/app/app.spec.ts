@@ -20,6 +20,7 @@ describe('App', () => {
 
     expect(element.querySelector('h1')?.textContent).toContain('software that moves businesses forward');
     expect(element.querySelector('#experience')).toBeTruthy();
+    expect(element.querySelector('a[href="mailto:borrasexposito@gmail.com"]')).toBeTruthy();
     expect(element.querySelector('a[href*="linkedin.com/in/"]')).toBeTruthy();
   });
 });
