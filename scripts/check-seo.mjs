@@ -37,9 +37,18 @@ if (!jsonLdMatch) {
   expectations.push(['ProfilePage JSON-LD', false]);
 } else {
   const structuredData = JSON.parse(jsonLdMatch[1]);
+  const dateModified = structuredData.dateModified;
+  const isoDateTimeWithTimezone = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})$/;
+
   expectations.push(
     ['ProfilePage JSON-LD', structuredData['@type'] === 'ProfilePage'],
     ['Person entity', structuredData.mainEntity?.['@type'] === 'Person'],
+    [
+      'valid dateModified DateTime',
+      typeof dateModified === 'string' &&
+        isoDateTimeWithTimezone.test(dateModified) &&
+        !Number.isNaN(Date.parse(dateModified)),
+    ],
     [
       'LinkedIn identity',
       structuredData.mainEntity?.sameAs?.some((url) => url.includes('linkedin.com')),
